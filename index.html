@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="quiz" id="quiz">
+        <!-- <div class="quiz-selection" id="select"></div> ДОБАВИТЬ ВЫБОР ВИКТОРИНЫ-->
+        <div class="quiz-questions">
+            <div class="quiz-questions-item">
+                <div class="quiz-question"></div>
+                <ul class="quiz-answers">
+                    <li>
+                        <label>
+                            <input type="radio" class="answer" name="a">
+                            <span>Ответ1.</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" class="answer" name="a">
+                            <span>Ответ2.</span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="quiz-results"></div>
+        <div class="quiz-buttons">
+            <button class="btn-next">Далее</button>
+            <button class="btn-restart">Начать заново</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
