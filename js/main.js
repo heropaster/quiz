@@ -64,7 +64,6 @@ const renderQuestions = function(index) {
     renderCount(index+1);
 
     questions.dataset.current = index
-
     const renderAnswers = () =>quizJs[index].answers.
         map((answer)=> 
         `
@@ -110,6 +109,7 @@ function checkAnswer() {
     //Если ответ верный - счет увеличен
         if (quizJs[questions.dataset.current].answers[user_answer].correct) {
             score++
+            console.log(score)
         };
 
 
@@ -121,16 +121,6 @@ function checkAnswer() {
     }
 }
 
-
-let localResults = {};
-
-quiz.addEventListener('change', (event)=> {
-    //Изменение ответов
-    if (event.target.classList.contains('answer')) {
-        localResults[event.target.name] = event.target.value
-    }
-
-});
 quiz.addEventListener('click', (event)=> {
     //Нажатие по кнопкам
     if (event.target.classList.contains('btnNext')) {
@@ -144,4 +134,34 @@ quiz.addEventListener('click', (event)=> {
 renderQuestions(0)
 
 function showResults() {
+    console.log('showResults start')
+    const resultsBlock= `
+                <h2 class="title">%title%</h2>
+                <h3 class="summary">%message%</h3>
+                <p class="result">%result%</p>
+    `;
+    
+    //Результат
+    let result = `${score} из ${quizJs.length}`;
+
+    let message,title;
+    //Варианты результатов в зависимости от очков
+    if(score==quizJs.length) {
+        title='Congratulations!'
+        message='Ты ответил верно на все вопросы, так держать!'
+    } else if (score >= quizJs.length/2) {
+        title='Неплохой результат'
+        message='Ты ответил верно более чем на половину вопросов, неплохо!'
+    } else {
+        title='Всё плохо:(';
+        message='Стоит повторить тему этой викторины, ты ответил менее чем на половину вопросов:('
+    }
+
+    const final = resultsBlock
+                                .replace('%title%', title)
+                                .replace('%message%', message)
+                                .replace('%result%', result);
+    
+
+    quiz.innerHTML=final
 }
