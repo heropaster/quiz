@@ -53,10 +53,10 @@ const quizJs = [
         ]
     },
 ] 
-
-const quiz= document.getElementById('quiz')
-const questions= document.getElementById('questions')
-const count= document.getElementById('count')
+const restart = document.getElementById('restart')
+const quiz = document.getElementById('quiz')
+const questions = document.getElementById('questions')
+const count = document.getElementById('count')
 const btnNext = document.getElementById('btnNext')
 const btnRestart = document.getElementById('btnRestart')
 
@@ -98,7 +98,7 @@ function checkAnswer() {
     if (!checkedRadio) {
         btnNext.style.backgroundColor="#E63D2D" //Если ответ не выбран, кнопка окрашивается в красный на 2 секунды
         setInterval(function() {
-            btnNext.style.backgroundColor="#fff";
+            btnNext.style.backgroundColor="#19AED6";
             clearInterval()
         },2000)
         return
@@ -126,8 +126,8 @@ quiz.addEventListener('click', (event)=> {
     if (event.target.classList.contains('btnNext')) {
         checkAnswer()
     }
-    if (event.target.classList.contains('btnRestart')) {
-        console.log("Начать заново")
+    if (event.target.classList.contains('restart')) {
+        history.go()
     }
 });
 
@@ -139,6 +139,7 @@ function showResults() {
                 <h2 class="title">%title%</h2>
                 <h3 class="summary">%message%</h3>
                 <p class="result">%result%</p>
+                <button class='restart' id='restart'>Начать заново</button>
     `;
     
     //Результат
@@ -150,7 +151,7 @@ function showResults() {
         title='Congratulations!'
         message='Ты ответил верно на все вопросы, так держать!'
     } else if (score >= quizJs.length/2) {
-        title='Неплохой результат'
+        title='Неплохой результат';
         message='Ты ответил верно более чем на половину вопросов, неплохо!'
     } else {
         title='Всё плохо:(';
@@ -163,5 +164,5 @@ function showResults() {
                                 .replace('%result%', result);
     
 
-    quiz.innerHTML=final
+    quiz.innerHTML=final;
 }
