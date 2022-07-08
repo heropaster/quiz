@@ -1,13 +1,39 @@
 //  Каждый вопрос в блоке является объектом, имеющим:
 //1.Вопрос 2.Массив ответов 3.Номер правильного ответа
+let score = 0;
 const quizJs = [
     {
-        question:"Вопрос1",
+        question:'"13" + 7',
+        answers:[
+            {
+                id:'1',
+                value:'137',
+                correct:true,
+            },
+            {
+                id:'2',
+                value:'20',
+                correct:false,
+            },
+            {
+                id:'3',
+                value:'713',
+                correct:false,
+            },
+            {
+                id:'4',
+                value:'"13"7',
+                correct:false,
+            }
+        ]
+    },
+    {
+        question:'Вопрос2',
         answers:[
             {
                 id:'1',
                 value:'Ответ1',
-                correct:true,
+                correct:false,
             },
             {
                 id:'2',
@@ -17,35 +43,10 @@ const quizJs = [
             {
                 id:'3',
                 value:'Ответ3',
-                correct:false,
-            },
-            {
-                id:'4',
-                value:'Ответ4',
-                correct:false,
-            }
-        ]
-    },
-    {
-        question:"Вопрос2",
-        answers:[
-            {
-                id:'5',
-                value:'Ответ1',
-                correct:false,
-            },
-            {
-                id:'6',
-                value:'Ответ2',
-                correct:false,
-            },
-            {
-                id:'7',
-                value:'Ответ3',
                 correct:true,
             },
             {
-                id:'8',
+                id:'4',
                 value:'Ответ4',
                 correct:false,
             }
@@ -56,11 +57,13 @@ const quizJs = [
 const quiz= document.getElementById('quiz')
 const questions= document.getElementById('questions')
 const count= document.getElementById('count')
-const btnNext = document.getElementById('btn')
-const btnRestart = document.getElementById('btn')
+const btnNext = document.getElementById('btnNext')
+const btnRestart = document.getElementById('btnRestart')
 
 const renderQuestions = function(index) {
     renderCount(index+1);
+
+    questions.dataset.current = index
 
     const renderAnswers = () =>quizJs[index].answers.
         map((answer)=> 
@@ -88,16 +91,45 @@ const renderCount = function(current) {
     count.innerHTML = `${current}/${quizJs.length}`
 };
 
-function checkAnswer() {
-    console.log('checkAnswer started')
 
+function checkAnswer() {
+    const nextQuestion = parseInt(parseInt(questions.dataset.current) + 1)
     //Выбранная кнопка
     const checkedRadio  = questions.querySelector('input[type="radio"]:checked')
-    console.log(checkedRadio)
+    if (!checkedRadio) {
+        btnNext.style.backgroundColor="#E63D2D" //Если ответ не выбран, кнопка окрашивается в красный на 2 секунды
+        setInterval(function() {
+            btnNext.style.backgroundColor="#fff";
+            clearInterval()
+        },2000)
+        return
+    };
+
+        //Проверка номера ответа пользователя
+    const user_answer = parseInt(checkedRadio.value-1)
+    //Если ответ верный - счет увеличен
+        if (quizJs[questions.dataset.current].answers[user_answer].correct) {
+            score++
+        };
+
+
+    if (quizJs.length == nextQuestion) {
+        console.log('Это последний вопрос')
+        showResults()
+    } else {
+        renderQuestions(nextQuestion)
+    }
 }
+
+
+let localResults = {};
 
 quiz.addEventListener('change', (event)=> {
     //Изменение ответов
+    if (event.target.classList.contains('answer')) {
+        localResults[event.target.name] = event.target.value
+    }
+
 });
 quiz.addEventListener('click', (event)=> {
     //Нажатие по кнопкам
@@ -110,3 +142,6 @@ quiz.addEventListener('click', (event)=> {
 });
 
 renderQuestions(0)
+
+function showResults() {
+}
