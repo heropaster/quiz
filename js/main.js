@@ -1,6 +1,7 @@
 //  Каждый вопрос в блоке является объектом, имеющим:
 //1.Вопрос 2.Массив ответов 3.Номер правильного ответа
 let score = 0;
+let currentQuiz
 const quizJs = [
     {
         question:'"13" + 7',
@@ -192,7 +193,7 @@ const quizJs = [
             },
             {
                 id:'3',
-                value:'Это отдельный способ объявления',
+                value:'Это способ определения функции',
                 correct:true,
             },
             {
@@ -202,19 +203,201 @@ const quizJs = [
             }
         ]
     },
-] 
+]
+let quizChem = [
+    {
+    question:'Выберите элемент-неметалл',
+    answers:[
+        {
+            id:'1',
+            value:'Au',
+            correct:false,
+        },
+        {
+            id:'2',
+            value:'Fe',
+            correct:false,
+        },
+        {
+            id:'3',
+            value:'U',
+            correct:false,
+        },
+        {
+            id:'4',
+            value:'B',
+            correct:true,
+        }
+    ]
+},{
+    question:'Максимальная степень окисления марганца(Mn)',
+    answers:[
+        {
+            id:'1',
+            value:'+2',
+            correct:false,
+        },
+        {
+            id:'2',
+            value:'+3',
+            correct:false,
+        },
+        {
+            id:'3',
+            value:'+1',
+            correct:false,
+        },
+        {
+            id:'4',
+            value:'+7',
+            correct:true,
+        }
+    ]
+},
+{
+    question:'Кто открыл элемент Иридий',
+    answers:[
+        {
+            id:'1',
+            value:'С.Теннант',
+            correct:false,
+        },
+        {
+            id:'2',
+            value:'К.Линней',
+            correct:false,
+        },
+        {
+            id:'3',
+            value:'М.Склодовская-Кюри',
+            correct:false,
+        },
+        {
+            id:'4',
+            value:'Д.Менделеев',
+            correct:true,
+        }
+    ]
+},
+{
+    question:'Выберите кислоту',
+    answers:[
+        {
+            id:'1',
+            value:'KOH',
+            correct:false,
+        },
+        {
+            id:'2',
+            value:'H2O',
+            correct:false,
+        },
+        {
+            id:'3',
+            value:'H3PO4',
+            correct:true,
+        },
+        {
+            id:'4',
+            value:'KMnO4',
+            correct:false,
+        }
+    ]
+},
+{
+    question:'Что вызывает алкогольное похмелье?',
+    answers:[
+        {
+            id:'1',
+            value:'Распад алкоголя проходит быстрее, чем окисление ацетальдегида',
+            correct:false,
+        },
+        {
+            id:'2',
+            value:'Распад алкоголя проходит медленнее, чем окисление ацетальдегида',
+            correct:true,
+        },
+        {
+            id:'3',
+            value:'Спирт впитывается в стенки коры больших полушарий',
+            correct:false,
+        },
+        {
+            id:'4',
+            value:'Растворимость этанола в воде и жирах печени происходит медленно',
+            correct:false,
+        }
+    ]
+},
+{
+    question:'Почему гелий искажает голос?',
+    answers:[
+        {
+            id:'1',
+            value:'Из-за примесей криптона',
+            correct:false,
+        },
+        {
+            id:'2',
+            value:'Из-за низкой плотности и вязкости газа',
+            correct:true,
+        },
+        {
+            id:'3',
+            value:'Из-за высокой плотности и вязкости газа',
+            correct:false,
+        },
+        {
+            id:'4',
+            value:'Нет правильных ответов',
+            correct:false,
+        }
+    ]
+},
+{
+    question:'Укажите элемент изотопы которого получили собственные имена',
+    answers:[
+        {
+            id:'1',
+            value:'H',
+            correct:true,
+        },
+        {
+            id:'2',
+            value:'U',
+            correct:false,
+        },
+        {
+            id:'3',
+            value:'C',
+            correct:false,
+        },
+        {
+            id:'4',
+            value:'P',
+            correct:false,
+        }
+    ]
+},
+
+]
+
+const select = document.getElementById('select')
+const list = document.getElementById('list')
+const js = document.getElementById('js')
+const chem = document.getElementById('chem')
 const restart = document.getElementById('restart')
 const quiz = document.getElementById('quiz')
 const questions = document.getElementById('questions')
 const count = document.getElementById('count')
 const btnNext = document.getElementById('btnNext')
-const btnRestart = document.getElementById('btnRestart')
+const btnRestart = document.getElementById('restart')
 
 const renderQuestions = function(index) {
     renderCount(index+1);
 
     questions.dataset.current = index
-    const renderAnswers = () =>quizJs[index].answers.
+    const renderAnswers = () =>currentQuiz[index].answers.
         map((answer)=> 
         `
         <li>
@@ -228,7 +411,7 @@ const renderQuestions = function(index) {
 
     questions.innerHTML = `
     <div class="quiz-questions-item">
-                <div class="quiz-question">${quizJs[index].question}</div>
+                <div class="quiz-question">${currentQuiz[index].question}</div>
                 <ul class="quiz-answers">${renderAnswers()}
                     
                 </ul>
@@ -237,7 +420,7 @@ const renderQuestions = function(index) {
 };
 
 const renderCount = function(current) {
-    count.innerHTML = `${current}/${quizJs.length}`
+    count.innerHTML = `${current}/${currentQuiz.length}`
 };
 
 
@@ -257,13 +440,13 @@ function checkAnswer() {
         //Проверка номера ответа пользователя
     const user_answer = parseInt(checkedRadio.value-1)
     //Если ответ верный - счет увеличен
-        if (quizJs[questions.dataset.current].answers[user_answer].correct) {
+        if (currentQuiz[questions.dataset.current].answers[user_answer].correct) {
             score++
             console.log(score)
         };
 
 
-    if (quizJs.length == nextQuestion) {
+    if (currentQuiz.length == nextQuestion) {
         console.log('Это последний вопрос')
         showResults()
     } else {
@@ -281,7 +464,6 @@ quiz.addEventListener('click', (event)=> {
     }
 });
 
-renderQuestions(0)
 
 function showResults() {
     console.log('showResults start')
@@ -295,14 +477,14 @@ function showResults() {
     `;
     
     //Результат
-    let result = `${score} из ${quizJs.length}`;
+    let result = `${score} из ${currentQuiz.length}`;
 
     let message,title;
     //Варианты результатов в зависимости от очков
-    if(score==quizJs.length) {
+    if(score==currentQuiz.length) {
         title='Congratulations!'
         message='Ты ответил верно на все вопросы, так держать!'
-    } else if (score >= quizJs.length/2) {
+    } else if (score >= currentQuiz.length/2) {
         title='Неплохой результат';
         message='Ты ответил верно более чем на половину вопросов, неплохо!'
     } else {
@@ -318,3 +500,21 @@ function showResults() {
 
     quiz.innerHTML=final;
 }
+
+function buttonsTurn() {
+    btnNext.style.display='block';
+}
+list.addEventListener('click', (event)=> {
+    //Выбор викторины
+    if (event.target.classList.contains('jsBtn')) {
+        currentQuiz=quizJs;
+        event.stopPropagation
+    }else if (event.target.classList.contains('chemBtn')) {
+        currentQuiz=quizChem;
+        event.stopPropagation
+    }
+    console.log(currentQuiz)
+    select.style.display='none'
+    renderQuestions(0)
+    buttonsTurn()
+});
