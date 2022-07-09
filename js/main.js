@@ -28,27 +28,177 @@ const quizJs = [
         ]
     },
     {
-        question:'Вопрос2',
+        question:'Какой язык работает в браузерах?',
         answers:[
             {
                 id:'1',
-                value:'Ответ1',
+                value:'CSS',
                 correct:false,
             },
             {
                 id:'2',
-                value:'Ответ2',
+                value:'JavaScript',
+                correct:true,
+            },
+            {
+                id:'3',
+                value:'C',
+                correct:false,
+            },
+            {
+                id:'4',
+                value:'Python',
+                correct:false,
+            }
+        ]
+    },
+    {
+        question:'Как расшифровывается CSS?',
+        answers:[
+            {
+                id:'1',
+                value:'Central Style Sheets',
+                correct:false,
+            },
+            {
+                id:'2',
+                value:'Cascading Simple Sheets',
                 correct:false,
             },
             {
                 id:'3',
-                value:'Ответ3',
+                value:'Cascading Style Sheets',
                 correct:true,
             },
             {
                 id:'4',
-                value:'Ответ4',
+                value:'Cared Styled Coding',
                 correct:false,
+            }
+        ]
+    },
+    {
+        question:'В каком году был создан JavaScript?',
+        answers:[
+            {
+                id:'1',
+                value:'1994',
+                correct:false,
+            },
+            {
+                id:'2',
+                value:'2001',
+                correct:false,
+            },
+            {
+                id:'3',
+                value:'1995',
+                correct:true,
+            },
+            {
+                id:'4',
+                value:'1996',
+                correct:false,
+            }
+        ]
+    },
+    {
+        question:'Что такое HTML?',
+        answers:[
+            {
+                id:'1',
+                value:'Hypertext Markdown Language',
+                correct:false,
+            },
+            {
+                id:'2',
+                value:'Hyperloop Machine Language',
+                correct:false,
+            },
+            {
+                id:'3',
+                value:'Hyper tangled massive loop',
+                correct:false,
+            },
+            {
+                id:'4',
+                value:'Hypertext Markup Language',
+                correct:true,
+            }
+        ]
+    },
+    {
+        question:'Оператор "&&" - это?',
+        answers:[
+            {
+                id:'1',
+                value:'Оператор присваивания',
+                correct:false,
+            },
+            {
+                id:'2',
+                value:'Логическое ИЛИ',
+                correct:false,
+            },
+            {
+                id:'3',
+                value:'Логическое И',
+                correct:true,
+            },
+            {
+                id:'4',
+                value:'Нет правильного ответа',
+                correct:false,
+            }
+        ]
+    },
+    {
+        question:'Какие бывают способы объявления функции',
+        answers:[
+            {
+                id:'1',
+                value:'Function Declaration',
+                correct:false,
+            },
+            {
+                id:'2',
+                value:'Function Expression',
+                correct:false,
+            },
+            {
+                id:'3',
+                value:'Named Function Expression',
+                correct:false,
+            },
+            {
+                id:'4',
+                value:'Все ответы верны',
+                correct:true,
+            }
+        ]
+    },
+    {
+        question:'К какому способу объявления функций относят стрелочные `() =>` ?',
+        answers:[
+            {
+                id:'1',
+                value:'Function Declaration',
+                correct:false,
+            },
+            {
+                id:'2',
+                value:'Named Function Expression',
+                correct:false,
+            },
+            {
+                id:'3',
+                value:'Это отдельный способ объявления',
+                correct:false,
+            },
+            {
+                id:'4',
+                value:'Function Expression',
+                correct:true,
             }
         ]
     },
@@ -140,6 +290,8 @@ function showResults() {
                 <h3 class="summary">%message%</h3>
                 <p class="result">%result%</p>
                 <button class='restart' id='restart'>Начать заново</button>
+                <div class='imgs'> <img src="img/solution.png" title='Подумал'> <img src="img/innovation.png" title='Придумал'> <img src="img/success.png" title='Сделал'>
+                 </div>
     `;
     
     //Результат

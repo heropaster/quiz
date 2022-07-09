@@ -13,7 +13,8 @@
 	width: 600px;
 	max-width: 95vw;
 	overflow: hidden;
-    height:85vh
+    height:40vh;
+	min-height: 40vh;
 }
 body {
 	font-family: "Noto Sans", sans-serif;
@@ -23,6 +24,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	min-height: 100vh;
 	height: 100vh;
 }
 .quiz-questions,
@@ -59,20 +61,34 @@ body {
     background-color:#4965D6;
     transform:scale(1.1)
 }
+.quiz-question {
+	text-align:center;
 
+}
 .btnNext,
 .restart {
     color:#fff;
     width:100%;
     cursor:pointer;
     border:none;
-    font-size:20px;
+    font-size:18px;
     position: absolute;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: 60px;
-	line-height: 70px;
+	height: 55px;
+	line-height: 65px;
     background-color:#19AED6;
     transition:all 0.3s ease
-};
+}
+.summary {
+	text-align: center;
+	margin: 0.5rem 0 1rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.result {
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
