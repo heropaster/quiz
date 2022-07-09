@@ -1,0 +1,14 @@
+.imgs {
+    margin-top:20px;
+    display:flex;
+    justify-content:space-between;
+}
+.imgs img {
+    width:128px;
+    height:128px;
+    transition:0.3s all;
+}
+.imgs img:hover {
+    transform:scale(1.3);
+    color:green;
+}

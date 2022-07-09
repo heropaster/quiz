@@ -193,12 +193,12 @@ const quizJs = [
             {
                 id:'3',
                 value:'Это отдельный способ объявления',
-                correct:false,
+                correct:true,
             },
             {
                 id:'4',
                 value:'Function Expression',
-                correct:true,
+                correct:false,
             }
         ]
     },
