@@ -624,8 +624,8 @@ function showResults() {
                 <h2 class="title">%title%</h2>
                 <h3 class="summary">%message%</h3>
                 <p class="result">%result%</p>
-                <button class='restart' id='restart'>Начать заново</button>
                 <div class='imgs'> <img src="img/solution.png" title='Подумал'> <img src="img/innovation.png" title='Придумал'> <img src="img/success.png" title='Сделал'>
+                <button class='restart' id='restart'>Начать заново</button>
                  </div>
     `;
     
