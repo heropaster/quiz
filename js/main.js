@@ -204,7 +204,7 @@ const quizJs = [
         ]
     },
 ]
-let quizChem = [
+const quizChem = [
     {
     question:'Выберите элемент-неметалл',
     answers:[
@@ -229,7 +229,8 @@ let quizChem = [
             correct:true,
         }
     ]
-},{
+},
+{
     question:'Максимальная степень окисления марганца(Mn)',
     answers:[
         {
@@ -379,9 +380,161 @@ let quizChem = [
         }
     ]
 },
-
+]
+const quizMath = [ {
+    question:'Продолжите ряд чисел: 1,2,3,5,8,13...',
+    answers:[
+        {
+            id:'1',
+            value:'21',
+            correct:true,
+        },
+        {
+            id:'2',
+            value:'18',
+            correct:false,
+        },
+        {
+            id:'3',
+            value:'20',
+            correct:false,
+        },
+        {
+            id:'4',
+            value:'26',
+            correct:false,
+        }
+    ]
+},
+{
+    question:' 2/3 числа равняется 3/5 числа. Что это за число? ',
+    answers:[
+        {
+            id:'1',
+            value:'217',
+            correct:false,
+        },
+        {
+            id:'2',
+            value:'1021',
+            correct:false,
+        },
+        {
+            id:'3',
+            value:'111',
+            correct:false,
+        },
+        {
+            id:'4',
+            value:'0',
+            correct:true,
+        }
+    ]
+},
+{
+    question:` Лупа имеет 4-кратное увеличение. Каким будет угол в 
+    25 °,рассматриваемый через эту лупу?`,
+    answers:[
+        {
+            id:'1',
+            value:'100',
+            correct:false,
+        },
+        {
+            id:'2',
+            value:'6.25',
+            correct:false,
+        },
+        {
+            id:'3',
+            value:'25',
+            correct:true,
+        },
+        {
+            id:'4',
+            value:'50',
+            correct:false,
+        }
+    ]
+},
+{
+     question:'Как изменится объем прямоугольного ящика, если его длину увеличили на 50 %, а высоту уменьшили в 1,5 раза?',
+    answers:[
+        {
+            id:'1',
+            value:'Увеличится на 50%',
+            correct:false,
+        },
+        {
+            id:'2',
+            value:'Не изменится',
+            correct:true,
+        },
+        {
+            id:'3',
+            value:'Уменьшится на 50%',
+            correct:false,
+        },
+        {
+            id:'4',
+            value:'Увеличится на 15%',
+            correct:false,
+        }
+    ]
+},
+{
+    question:`Решите уравнение 5/(x – 1) – 3/(x + 1) = 15/(x^2 – 1)`,
+   answers:[
+       {
+           id:'1',
+           value:'3,5',
+           correct:true,
+       },
+       {
+           id:'2',
+           value:'5',
+           correct:false,
+       },
+       {
+           id:'3',
+           value:'7',
+           correct:false,
+       },
+       {
+           id:'4',
+           value:'Нет верного ответа',
+           correct:false,
+       }
+   ]
+},
+{
+    question:`Шоколадка стоит 115 рублей и еще половину её стоимости, сколько стоит шоколадка?`,
+   answers:[
+       {
+           id:'1',
+           value:'172,5',
+           correct:false,
+       },
+       {
+           id:'2',
+           value:'150',
+           correct:false,
+       },
+       {
+           id:'3',
+           value:'230',
+           correct:true,
+       },
+       {
+           id:'4',
+           value:'115',
+           correct:false,
+       }
+   ]
+},
 ]
 
+const math = document.getElementById('math')
 const select = document.getElementById('select')
 const list = document.getElementById('list')
 const js = document.getElementById('js')
@@ -430,10 +583,10 @@ function checkAnswer() {
     const checkedRadio  = questions.querySelector('input[type="radio"]:checked')
     if (!checkedRadio) {
         btnNext.style.backgroundColor="#E63D2D" //Если ответ не выбран, кнопка окрашивается в красный на 2 секунды
-        setInterval(function() {
+        setTimeout(function() {
             btnNext.style.backgroundColor="#19AED6";
-            clearInterval()
-        },2000)
+            clearTimeout()
+        },500)
         return
     };
 
@@ -504,15 +657,20 @@ function showResults() {
 function buttonsTurn() {
     btnNext.style.display='block';
 }
+
 list.addEventListener('click', (event)=> {
     //Выбор викторины
     if (event.target.classList.contains('jsBtn')) {
         currentQuiz=quizJs;
-        event.stopPropagation
+        event.stopPropagation;
     }else if (event.target.classList.contains('chemBtn')) {
         currentQuiz=quizChem;
-        event.stopPropagation
-    }
+        event.stopPropagation;
+    }else if (event.target.classList.contains('mathBtn')) {
+        currentQuiz=quizMath;
+        event.stopPropagation;
+    }else return
+
     console.log(currentQuiz)
     select.style.display='none'
     renderQuestions(0)
