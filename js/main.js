@@ -261,7 +261,7 @@ const quizChem = [
         {
             id:'1',
             value:'С.Теннант',
-            correct:false,
+            correct:true,
         },
         {
             id:'2',
@@ -276,7 +276,7 @@ const quizChem = [
         {
             id:'4',
             value:'Д.Менделеев',
-            correct:true,
+            correct:false,
         }
     ]
 },

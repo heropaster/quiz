@@ -9,8 +9,8 @@ h1 {
 	width: 600px;
 	max-width: 95vw;
 	overflow: hidden;
-    height:40vh;
-	min-height: 40vh;
+    height:32vh;
+	min-height: 30vh;
 }
 body {
 	font-family: "Noto Sans", sans-serif;
