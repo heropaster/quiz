@@ -1,12 +1,4 @@
 @media screen and (max-width:1441px) {
-    body {
-        overflow-x:hidden;
-        overflow-y:hidden;
-    }
-    html {
-        overflow-x:hidden;
-        overflow-y:hidden;
-    }
 }
 @media sceen and (max-width:1200px)  {
     .quiz {
@@ -14,15 +6,22 @@
         min-height:40vh;
     }
 }
-@media screen and (max-width:1199px) {
-
+@media screen and (max-width:914px) {
+    .quiz {
+        height: 30vh;
+    }
 }
-@media screen and (max-width:991px) {
-
+@media screen and (max-width:821px) {
+    .quiz {
+        margin-top:120px;
+        margin-bottom:120px;
+    }
+    .contacts {
+        margin-top:70px;
+        height:120px;
+    }
 }
-@media screen and (max-width:767px) {
 
-}
 @media screen and (max-width:575px) {
     body {
         height:100%;
@@ -38,8 +37,7 @@
         font-weight: bold;
         font-size:100%;
         position:absolute;
-        left:150px;
-        bottom:390px
+        top:0;
     }
     .imgs img {
         width:64px;
@@ -64,81 +62,102 @@
         flex-direction: column;
     }
 }
-@media screen and (max-height:861px) {
-    html {
-        overflow-y:auto;
-    }
+@media screen and (max-width:415px) {
     body {
-        overflow-y:auto;
+        height: 740px;
     }
     .quiz {
-        height: 40vh;
-        position:relative;
+        height:350px;
+        min-height: 300px;
+        margin-top:50px;
+        margin-bottom: 50px;
+    }
+    .contacts {
+        height: 160px;
+
     }
     .quiz-questionCount {
-        font-weight: bold;
-        font-size:100%;
-        position:absolute;
-        left:150px;
-        top:5px
+        top:0;
     }
-    .list div {
-        margin:15px 40px
+    p.telegram {
+        width:200px;
+        height:30px;
+        margin: auto
     }
-    .imgs img {
-        width:80px;
-        height:80px
+    p.mail {
+        width:312x;
+        height:30px;
+        margin:0 auto;
+        margin-top:30px;
     }
-    .contacts {
-        margin-top:210px;
-    }
-    .contacts a {
-        font-size: 20px;
-        position:relative;
-        letter-spacing: 1.5px;
-        padding:1px;
-    }
-    svg rect.telegram {
-        width:160px;
-        height: 100%;
-        stroke:black;
-        fill:transparent;
-        stroke-width: 5px;
-        margin:0;
-        stroke-dasharray:13px 140px 25px 18px 25px 140px 25px;
-        transition: 0.5s all;
-    }
-    a:hover rect.telegram {
-        stroke-dasharray:165px 0px 42px 0px 162px 0px 42px 0px;
-    }
-    .contacts-container {
-        align-items:center
-    }
-    svg rect.mail {
-        stroke-dasharray:11px 240px 23px 18px 23px 240px 23px;
-    }
-    a:hover rect.mail {
-        stroke-dasharray:262px 0px 42px 0px 262px 0px 42px;
-    }
-    
+   
 }
-@media screen and (max-height:670px) {
-    body {
-        overflow-y:auto;
-        
+@media screen and (max-width:376px) {
+    body,html {
+        overflow-y:hidden;
     }
     .quiz {
-        height: 40vh;
+        height:370px;
+        min-height: 0px;
         position:relative;
+        margin:0 auto;
     }
     .list div {
         margin:15px 40px
     }
-    .quiz {
-        margin-top:40px
+    .contacts {
+        margin-top: 80px
+    }
+    .contacts a {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        padding:1px;
     }
     .contacts {
-        margin-top:210px;
+        height:170px;
+    }
+    p.telegram {
+        margin-bottom: 10px;
+    }
+    .contact {
+        height:140px;
+        margin-top:190px
+    }
+    .contacts-container p.mail {
+        margin-top:15px
+    }
+    .contacts #telegram {
+        width:180px;
+    }
+    .contacts p.mail {
+        margin:10px auto;
+    }
+    svg rect.telegram {
+        stroke-dasharray:11px 160px 22px 20px 22px 160px 21px 20px;
+    }
+    a:hover rect.telegram {
+        stroke-dasharray:202px 0px 42px 0px 202px 0px 42px 0px ;
+    }
+    svg rect.mail {
+        stroke-dasharray:11px 240px 22px 20px 22px 240px 22px 20px ;
+    }
+    a:hover rect.mail {
+        stroke-dasharray: 262px 0px 42px 0px 262px 0px 42px;
+    }
+}
+@media screen and (max-width:321px) {
+    html {
+        overflow-y:hidden;
+    }
+    body {
+        overflow-y: hidden;
+    }
+    body .quiz {
+        height: 40vh;
+        min-height: 35vh;
+    }
+    .contacts #telegram {
+        width:180px
     }
     .contacts a {
         font-size: 20px;
@@ -146,26 +165,20 @@
         letter-spacing: 1.5px;
         padding:1px;
     }
-    svg rect.telegram {
-        width:160px;
-        height: 100%;
-        stroke:black;
-        fill:transparent;
-        stroke-width: 5px;
+    .contacts p .telegram {
+        width:182px;
         margin:0;
-        stroke-dasharray:13px 140px 25px 18px 25px 140px 25px;
-        transition: 0.5s all;
+    }
+    svg rect.telegram {
+        stroke-dasharray:11px 160px 22px 20px 22px 160px 21px 20px;
     }
     a:hover rect.telegram {
-        stroke-dasharray:165px 0px 42px 0px 162px 0px 42px 0px;
-    }
-    .contacts-container {
-        align-items:center
+        stroke-dasharray:202px 0px 42px 0px 202px 0px 42px 0px ;
     }
     svg rect.mail {
-        stroke-dasharray:11px 240px 23px 18px 23px 240px 23px;
+        stroke-dasharray:11px 240px 21px 20px 21px 240px 21px 20px ;
     }
     a:hover rect.mail {
-        stroke-dasharray:262px 0px 42px 0px 262px 0px 42px;
+        stroke-dasharray: 262px 0px 42px 0px 262px 0px 42px;
     }
 }
