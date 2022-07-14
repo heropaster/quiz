@@ -180,7 +180,6 @@
     }
     .quiz {
         height:370px;
-        min-height: 0px;
         position:relative;
         margin:0 auto;
     }
