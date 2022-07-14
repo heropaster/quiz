@@ -1,4 +1,7 @@
 @media screen and (max-width:1281px) {
+    .quiz {
+        height: 315px;
+    }
     .contacts p.mail svg {
         width: 322px;
     }
