@@ -232,12 +232,10 @@
 }
 
 @media screen and (max-width:321px) {
-    html {
-        overflow-y:hidden;
+    body,html {
+        overflow-y:auto;
     }
-    body {
-        overflow-y: hidden;
-    }
+
     body .quiz {
         height: 40vh;
     }
