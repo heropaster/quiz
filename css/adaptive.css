@@ -231,6 +231,7 @@
         stroke-dasharray: 262px 0px 42px 0px 262px 0px 42px;
     }
 }
+
 @media screen and (max-width:321px) {
     html {
         overflow-y:hidden;
@@ -268,6 +269,19 @@
         stroke-dasharray: 262px 0px 42px 0px 262px 0px 42px;
     }
 }
+@media screen and (max-width:311px) {
+    body,html {
+        overflow-y:auto;
+        height: 700px;
+    }
+    body .quiz {
+        min-height: 300px;
+        margin-top:50px;
+    }
+    .contacts {
+        margin-top:150px
+    }
+}
 @media screen and (max-width:281px) {
     body,html {
         overflow-y:auto;
@@ -286,6 +300,12 @@
     }
     .contacts p.mail a{
         width: 242px;
+    }
+    .contacts #mail svg {
+        width: 244px;
+    }
+    .contacts svg rect.mail {
+        width:244px
     }
     svg rect.mail {
         stroke-dasharray:12px 220px 23px 20px 23px 220px 23px 20px;
