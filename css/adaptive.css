@@ -240,7 +240,6 @@
     }
     body .quiz {
         height: 40vh;
-        min-height: 35vh;
     }
     .contacts #telegram {
         width:180px
